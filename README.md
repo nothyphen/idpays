@@ -6,3 +6,23 @@
 ```
 go get github.com/nothyphen/idpays
 ```
+
+
+------
+
+## Usage
+
+```go
+package main
+
+import (
+    "fmt"
+    "github.com/nothyphen/idpays"
+)
+
+func main() {
+    idp := idpays.NewIdPays()
+
+    id, link, error := idp.Payment(orderID, callbackURL, amount, mail, phone, desc)
+}
+```
