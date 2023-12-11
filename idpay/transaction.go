@@ -8,7 +8,7 @@ import (
 	"github.com/nothyphen/idpays/serializers"
 )
 
-func (i *idpays) Payment(SANDBOX string, API_KEY string, order_id int, amount int, name string, phone string, mail string, desc string, callback string) (string, string, error) {
+func (i *idpays) Payment(SANDBOX string, order_id int, amount int, name string, phone string, mail string, desc string, callback string) (string, string, error) {
 	payment_url := "https://api.idpay.ir/v1.1/payment"
 
 	data := map[string]interface{}{
@@ -30,7 +30,7 @@ func (i *idpays) Payment(SANDBOX string, API_KEY string, order_id int, amount in
 	}
 
 	request.Header.Add("Content-Type", "application/json")
-	request.Header.Add("X-API-KEY", API_KEY)
+	request.Header.Add("X-API-KEY", i.apikey)
 	request.Header.Add("X-SANDBOX", SANDBOX)
 
 	client := &http.Client{}
